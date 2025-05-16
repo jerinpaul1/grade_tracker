@@ -50,6 +50,47 @@ button {
   padding: var(--spacing);
 }
 
+/* ─── Login Screen Styling ───────────────────────────────────── */
+/* Stack and center login inputs & buttons */
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#login h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing);
+  color: var(--color-primary);
+}
+#login input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+#login button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+#login button:hover:not(:disabled) {
+  background: var(--color-accent);
+}
+#login button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
 /* ─── Card ───────────────────────────────────────────────────── */
 .card {
   display: flex;                /* center each card’s inner content */
