@@ -59,9 +59,9 @@ button {
   text-align: center;
 }
 #login h2 {
+  margin: 0 0 var(--spacing) 0;
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: var(--spacing);
   color: var(--color-primary);
 }
 #login input {
