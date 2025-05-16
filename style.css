@@ -1,0 +1,155 @@
+/* style.css */
+
+/* ─── Variables ───────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --color-bg:    #f9fafb;
+  --color-card:  #ffffff;
+  --color-primary: #3b82f6;
+  --color-accent:  #10b981;
+  --color-text:  #1f2937;
+  --color-muted: #6b7280;
+  --radius:      0.5rem;
+  --spacing:     1rem;
+
+  /* Typography */
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ─── Container ──────────────────────────────────────────────── */
+.grade-tracker {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: var(--spacing);
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+header {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ─── Form ───────────────────────────────────────────────────── */
+form#grade-form {
+  display: grid;
+  gap: var(--spacing);
+}
+form label {
+  font-weight: 500;
+  color: var(--color-text);
+}
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  transition: border-color 0.2s;
+}
+form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+form button {
+  padding: 0.75rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+}
+form button:hover:not(:disabled) {
+  background: var(--color-accent);
+}
+form button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Message ────────────────────────────────────────────────── */
+#message {
+  margin-top: 0.5rem;
+  min-height: 1.2em;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+#message.error {
+  color: #dc2626; /* red-600 */
+}
+#message.success {
+  color: var(--color-accent);
+}
+
+/* ─── Grades List ───────────────────────────────────────────── */
+section h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing);
+  color: var(--color-text);
+}
+#grades-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#grades-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.1s;
+}
+#grades-list li:hover {
+  background: #f3f4f6;
+}
+#grades-list li:last-child {
+  border-bottom: none;
+}
+#grades-list .date {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
