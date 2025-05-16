@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grade Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="login" style="display: none;">
+    <h2>Login / Sign Up</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="signIn()">Log In</button>
+    <button onclick="signUp()">Sign Up</button>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" style="display: none;">
+    <button onclick="signOut()">Log Out</button>
+    <h1>Grade Tracker</h1>
+    <button onclick="addYear()">➕ Add Year</button>
+
+    <div style="margin-top: 1em;">
+      <button onclick="saveGrades()">💾 Save</button>
+      <span id="save-msg" style="color: green; display: none;">✅ Saved!</span>
+      <button onclick="resetData()">🧹 Reset</button>
+      <button onclick="exportData()">📤 Export</button>
+      <button onclick="document.getElementById('import-input').click()">📥 Import</button>
+      <input id="import-input" type="file" accept=".json" onchange="importData(event)" style="display: none;" />
+    </div>
+
+    <div id="years"></div>
+    <h2>🎓 Degree Classification: <span id="classification">-</span></h2>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
