@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Grade Tracker</title>
-    <!-- Google Font -->
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,18 +16,9 @@
   <!-- Heroicons (optional SVG icons) -->
   <script src="https://unpkg.com/heroicons@2.0.13/dist/heroicons.min.js"></script>
 
-  <link rel="stylesheet" href="style.css">  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Heroicons (optional SVG icons) -->
-  <script src="https://unpkg.com/heroicons@2.0.13/dist/heroicons.min.js"></script>
-
+  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
+
   <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
@@ -42,11 +34,16 @@
 
   <!-- Main App -->
   <div id="app" style="display: none;">
-    <button onclick="signOut()">Log Out</button>
-    <h1>Grade Tracker</h1>
-    <button onclick="addYear()">➕ Add Year</button>
 
-    <div style="margin-top: 1em;">
+    <!-- Logout & Title -->
+    <div class="card">
+      <button onclick="signOut()">Log Out</button>
+      <h1>Grade Tracker</h1>
+      <button onclick="addYear()">➕ Add Year</button>
+    </div>
+
+    <!-- Save / Reset / Import / Export Controls -->
+    <div class="card" style="display: flex; gap: 1rem; align-items: center;">
       <button onclick="saveGrades()">💾 Save</button>
       <span id="save-msg" style="color: green; display: none;">✅ Saved!</span>
       <button onclick="resetData()">🧹 Reset</button>
@@ -55,8 +52,16 @@
       <input id="import-input" type="file" accept=".json" onchange="importData(event)" style="display: none;" />
     </div>
 
-    <div id="years"></div>
-    <h2>🎓 Degree Classification: <span id="classification">-</span></h2>
+    <!-- Years Container -->
+    <div class="card" id="years-container">
+      <div id="years"></div>
+    </div>
+
+    <!-- Classification -->
+    <div class="card" style="text-align: center;">
+      <h2>🎓 Degree Classification:</h2>
+      <span id="classification">-</span>
+    </div>
   </div>
 
   <script src="app.js"></script>
