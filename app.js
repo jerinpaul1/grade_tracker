@@ -154,7 +154,8 @@ function render() {
 
   data.years.forEach((yr, yi) => {
     const yDiv = document.createElement("div");
-    yDiv.className = "year";
+    // Add both "year" and "card" classes so each year appears in its own styled card
+    yDiv.classList.add("year", "card");
 
     if (yr.collapsed) {
       // Year collapsed: show name, average, and Edit button
