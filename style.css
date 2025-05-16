@@ -50,6 +50,37 @@ button {
   padding: var(--spacing);
 }
 
+/* ─── Grouped Controls ───────────────────────────────────────── */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+.control-card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: var(--spacing);
+  flex: 1 1 240px;             /* base width 240px, grow/shrink */
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.control-card h1 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+.control-card button {
+  width: auto;
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
+}
+
 /* ─── Login Screen Styling ───────────────────────────────────── */
 /* Stack and center login inputs & buttons */
 #login {
@@ -92,24 +123,18 @@ button {
 }
 
 /* ─── Card ───────────────────────────────────────────────────── */
+/* Generic card styling (used elsewhere) */
 .card {
-  display: flex;                /* center each card’s inner content */
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
   background: var(--color-card);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   padding: var(--spacing);
   margin-bottom: var(--spacing);
-}
-/* For your Save/Reset/Import/Export card (2nd .card): lay out buttons in a row */
-.card:nth-of-type(2) {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing);
+
+  display: flex;                /* center each card’s inner content */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* ─── Header ─────────────────────────────────────────────────── */
@@ -199,7 +224,7 @@ section h2 {
 #grades-list li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   padding: 0.75rem;
   border-bottom: 1px solid #e5e7eb;
   transition: background 0.1s;
