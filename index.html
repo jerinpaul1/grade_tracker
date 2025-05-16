@@ -35,22 +35,25 @@
   <!-- Main App -->
   <div id="app" style="display: none;">
 
-    <!-- Logout & Title -->
-    <div class="card">
-      <button onclick="signOut()">Log Out</button>
-      <h1>Grade Tracker</h1>
-      <button onclick="addYear()">➕ Add Year</button>
-    </div>
+    <!-- Grouped Controls -->
+<div class="controls">
+  <!-- Logout & Title Card -->
+  <div class="card control-card">
+    <button onclick="signOut()">🔓 Log Out</button>
+    <h1>Grade Tracker</h1>
+    <button onclick="addYear()">➕ Add Year</button>
+  </div>
 
-    <!-- Save / Reset / Import / Export Controls -->
-    <div class="card" style="display: flex; gap: 1rem; align-items: center;">
-      <button onclick="saveGrades()">💾 Save</button>
-      <span id="save-msg" style="color: green; display: none;">✅ Saved!</span>
-      <button onclick="resetData()">🧹 Reset</button>
-      <button onclick="exportData()">📤 Export</button>
-      <button onclick="document.getElementById('import-input').click()">📥 Import</button>
-      <input id="import-input" type="file" accept=".json" onchange="importData(event)" style="display: none;" />
-    </div>
+  <!-- Save/Reset/Import/Export Card -->
+  <div class="card control-card">
+    <button onclick="saveGrades()">💾 Save</button>
+    <span id="save-msg">✅ Saved!</span>
+    <button onclick="resetData()">🧹 Reset</button>
+    <button onclick="exportData()">📤 Export</button>
+    <button onclick="document.getElementById('import-input').click()">📥 Import</button>
+    <input id="import-input" type="file" accept=".json" onchange="importData(event)" hidden />
+  </div>
+</div>
 
     <!-- Years Container -->
     <div class="card" id="years-container">
