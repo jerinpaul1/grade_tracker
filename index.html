@@ -3,22 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GradeTrak</title>
-
-  <!-- Google Fonts -->
+  <title>Grade Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-
-  <!-- ───── LOGIN SCREEN ───── -->
+  <!-- Login Screen -->
   <div id="login" style="display: none;">
     <h2>Welcome to GradeTrak 🎓</h2>
     <input type="email" id="email" placeholder="Email" />
@@ -28,24 +21,23 @@
     <a href="reset-password.html">Forgotten your password?</a>
   </div>
 
-  <!-- ───── MAIN APP ───── -->
+  <!-- Main App -->
   <div id="app" style="display: none;">
     <!-- Controls -->
     <div class="controls">
-
-      <!-- App Title & Session -->
+      <!-- Logout + Add Year -->
       <div class="card control-card">
-        <h1>GradeTrak 🎓</h1>
-        <div class="button-row">
+        <h1>Grade Tracker</h1>
+        <div class="button-grid">
           <button onclick="addYear()">➕ Add Year</button>
           <button onclick="signOut()">🔓 Log Out</button>
         </div>
       </div>
 
-      <!-- Save/Reset/Import/Export -->
+      <!-- Save / Reset / Import / Export -->
       <div class="card control-card">
         <h1>Manage Data</h1>
-        <div class="button-row">
+        <div class="button-grid">
           <button onclick="saveGrades()">💾 Save</button>
           <button onclick="resetData()">🧹 Reset</button>
           <button onclick="exportData()">📤 Export</button>
@@ -54,24 +46,20 @@
         <input id="import-input" type="file" accept=".json" onchange="importData(event)" hidden />
         <span id="save-msg" style="display: none;">✅ Saved!</span>
       </div>
-
     </div>
 
-    <!-- Years Container -->
+    <!-- Years -->
     <div class="card" id="years-container">
-      <div id="years">
-        <!-- JS will inject years/modules here -->
-      </div>
+      <div id="years"></div>
     </div>
 
-    <!-- Classification Summary -->
+    <!-- Classification -->
     <div class="card">
       <h2>🎓 Degree Classification:</h2>
       <span id="classification">-</span>
     </div>
   </div>
 
-  <!-- Script -->
   <script src="app.js"></script>
 </body>
 </html>
