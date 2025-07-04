@@ -1,0 +1,207 @@
+/* ─── Variables ───────────────────────────────────────────────── */
+:root {
+  --color-bg:        #f9fafb;
+  --color-card:      #ffffff;
+  --color-primary:   #3b82f6;
+  --color-accent:    #10b981;
+  --color-text:      #1f2937;
+  --color-muted:     #6b7280;
+  --radius:          0.5rem;
+  --spacing:         1rem;
+  --font-sans:       'Inter', sans-serif;
+}
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ─── Common Containers ─────────────────────────────────────── */
+#login,
+#app {
+  width: 100%;
+  max-width: 520px;
+  padding: var(--spacing);
+}
+
+/* ─── Card Style ─────────────────────────────────────────────── */
+.card {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: var(--spacing);
+  margin-bottom: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ─── Login Screen ───────────────────────────────────────────── */
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#login h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing);
+}
+#login input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+#login button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+#login button:hover:not(:disabled) {
+  background: var(--color-accent);
+}
+#login button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* ─── App View ───────────────────────────────────────────────── */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#app h1, #app h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+#classification {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+button:hover {
+  background: var(--color-accent);
+}
+button:active {
+  transform: scale(0.98);
+}
+
+/* ─── Year & Module Cards ───────────────────────────────────── */
+.year, .module, .module-collapsed {
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+}
+.module-collapsed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.module-collapsed strong {
+  font-weight: 600;
+}
+.module input {
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  width: calc(50% - 0.75rem);
+}
+
+/* ─── Inputs ────────────────────────────────────────────────── */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: var(--spacing);
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+/* ─── Save Message ──────────────────────────────────────────── */
+#save-msg {
+  display: none;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* ─── File Upload ───────────────────────────────────────────── */
+input[type="file"] {
+  margin-top: 1rem;
+}
+
+/* ─── Message States ────────────────────────────────────────── */
+#message, #reset-msg, #update-msg {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+#message.error, #reset-error, #update-error {
+  color: #dc2626;
+}
+#message.success, #reset-msg, #update-msg {
+  color: var(--color-accent);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .module input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
