@@ -55,11 +55,15 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Login screen */
+/* ─── Login (original style) ─────────────────────── */
 #login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   max-width: 400px;
   width: 100%;
-  text-align: center;
+  margin-top: 100px;
 }
 #login h2 {
   color: var(--color-primary);
@@ -74,14 +78,18 @@ button:disabled {
   border: 1px solid #d1d5db;
   border-radius: var(--radius);
 }
+#login button {
+  width: 100%;
+  margin-bottom: var(--spacing);
+}
 
-/* App container */
+/* ─── App Container ──────────────────────────────── */
 #app {
   width: 100%;
   max-width: 900px;
 }
 
-/* Card design */
+/* ─── Cards ──────────────────────────────────────── */
 .card {
   background: var(--color-card);
   border-radius: var(--radius);
@@ -91,7 +99,7 @@ button:disabled {
   text-align: center;
 }
 
-/* Control section */
+/* ─── Control Section ────────────────────────────── */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -112,7 +120,7 @@ button:disabled {
   margin: 0.5rem 0;
 }
 
-.control-card .button-grid {
+.button-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
@@ -120,7 +128,7 @@ button:disabled {
   margin-top: var(--spacing);
 }
 
-/* Classification Section */
+/* ─── Classification ─────────────────────────────── */
 #classification {
   display: inline-block;
   margin-top: 0.5rem;
@@ -129,12 +137,12 @@ button:disabled {
   color: var(--color-accent);
 }
 
-/* Year container */
+/* ─── Years ───────────────────────────────────────── */
 #years-container {
   padding: var(--spacing);
 }
 
-/* Saved message */
+/* ─── Saved Message ──────────────────────────────── */
 #save-msg {
   margin-top: 0.5rem;
   color: var(--color-accent);
