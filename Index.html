@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GradeTrak</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ─── Login Section ─────────────────────────────────────────── -->
+  <div id="login" style="display: none;">
+    <h2>Welcome to GradeTrak 🎓</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="signIn()">🔒 Log In</button>
+    <button onclick="signUp()">📝 Sign Up</button>
+    <a href="reset-password.html">Forgotten your password?</a>
+  </div>
+
+  <!-- ─── App Section ────────────────────────────────────────────── -->
+  <main id="app" style="display: none;">
+
+    <!-- ─── Controls Group ───────────────────────────────────────── -->
+    <section class="controls">
+      <!-- Account Card -->
+      <div class="card control-card">
+        <button onclick="signOut()">🔓 Log Out</button>
+        <h1>GradeTrak</h1>
+        <button onclick="addYear()">➕ Add Year</button>
+      </div>
+
+      <!-- Data Management Card -->
+      <div class="card control-card">
+        <button onclick="saveGrades()">💾 Save</button>
+        <span id="save-msg" style="display: none;">✅ Saved!</span>
+        <button onclick="resetData()">🧹 Reset</button>
+        <button onclick="exportData()">📤 Export</button>
+        <button onclick="document.getElementById('import-input').click()">📥 Import</button>
+        <input id="import-input" type="file" accept=".json" onchange="importData(event)" hidden />
+      </div>
+    </section>
+
+    <!-- ─── Years Container ──────────────────────────────────────── -->
+    <section class="card" id="years-container">
+      <div id="years"></div>
+    </section>
+
+    <!-- ─── Classification ───────────────────────────────────────── -->
+    <section class="card" style="text-align: center;">
+      <h2>🎓 Degree Classification:</h2>
+      <span id="classification">-</span>
+    </section>
+  </main>
+
+  <!-- ─── App Script ────────────────────────────────────────────── -->
+  <script src="app.js"></script>
+</body>
+</html>
