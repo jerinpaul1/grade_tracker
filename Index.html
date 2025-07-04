@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GradeTrak</title>
 
-  <!-- Google Font -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -17,50 +16,49 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-  <!-- Login View -->
-  <div id="login" class="centered-container" style="display: none;">
-    <h2>Welcome to GradeTrak 🎓</h2>
+
+  <!-- LOGIN SCREEN -->
+  <main id="login" class="card-container" style="display: none;">
+    <h1>🎓 GradeTrak</h1>
+    <p class="subtitle">Track your university grades easily</p>
     <input type="email" id="email" placeholder="Email" />
     <input type="password" id="password" placeholder="Password" />
-    <button onclick="signIn()">🔒 Log In</button>
-    <button onclick="signUp()">📝 Sign Up</button>
-    <a href="reset-password.html">Forgotten your password?</a>
-  </div>
+    <button onclick="signIn()">🔐 Log In</button>
+    <button onclick="signUp()" class="outline">📝 Sign Up</button>
+    <a href="reset-password.html">Forgot your password?</a>
+  </main>
 
-  <!-- App View -->
-  <div id="app" class="app-container" style="display: none;">
-    <header>
-      <h1>GradeTrak 🎓</h1>
-      <button class="logout-btn" onclick="signOut()">🔓 Log Out</button>
+  <!-- MAIN APP -->
+  <main id="app" class="app-wrapper" style="display: none;">
+
+    <!-- Top Bar -->
+    <header class="app-header">
+      <h1>📘 GradeTrak</h1>
+      <button class="logout" onclick="signOut()">Log Out</button>
     </header>
 
     <!-- Controls -->
-    <section class="card controls-grid">
-      <div>
-        <button onclick="addYear()">➕ Add Year</button>
-      </div>
-      <div class="button-group">
-        <button onclick="saveGrades()">💾 Save</button>
-        <span id="save-msg" class="success-msg" style="display: none;">✅ Saved!</span>
-      </div>
-      <div class="button-group">
-        <button onclick="resetData()">🧹 Reset</button>
-        <button onclick="exportData()">📤 Export</button>
-        <button onclick="document.getElementById('import-input').click()">📥 Import</button>
-        <input id="import-input" type="file" accept=".json" onchange="importData(event)" hidden />
-      </div>
+    <section class="card controls">
+      <button onclick="addYear()">➕ Add Year</button>
+      <button onclick="saveGrades()">💾 Save</button>
+      <button onclick="resetData()">🧹 Reset</button>
+      <button onclick="exportData()">📤 Export</button>
+      <button onclick="document.getElementById('import-input').click()">📥 Import</button>
+      <input id="import-input" type="file" accept=".json" onchange="importData(event)" hidden />
+      <span id="save-msg" class="success" style="display: none;">✅ Saved</span>
     </section>
 
-    <!-- Grades & Classification -->
-    <section class="card">
+    <!-- Grades Container -->
+    <section class="card" id="years-container">
       <div id="years"></div>
     </section>
 
-    <section class="card classification-card">
-      <h2>🎓 Degree Classification:</h2>
+    <!-- Classification -->
+    <section class="card classification">
+      <h2>🎓 Degree Classification</h2>
       <span id="classification">-</span>
     </section>
-  </div>
+  </main>
 
   <script src="app.js"></script>
 </body>
