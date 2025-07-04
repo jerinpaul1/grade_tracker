@@ -1,17 +1,15 @@
-/* ─── Variables ───────────────────────────────────────────── */
 :root {
-  --color-bg: #f9fafb;
-  --color-card: #ffffff;
+  --color-bg:    #f9fafb;
+  --color-card:  #ffffff;
   --color-primary: #3b82f6;
-  --color-accent: #10b981;
-  --color-text: #1f2937;
+  --color-accent:  #10b981;
+  --color-text:  #1f2937;
   --color-muted: #6b7280;
-  --radius: 0.5rem;
-  --spacing: 1rem;
+  --radius:      0.5rem;
+  --spacing:     1rem;
   --font-sans: 'Inter', sans-serif;
 }
 
-/* ─── Base Styles ─────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -19,7 +17,6 @@
 }
 body {
   margin: 0;
-  padding: var(--spacing);
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -27,11 +24,14 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  padding: var(--spacing);
 }
+
 a {
   color: var(--color-primary);
   text-decoration: none;
 }
+
 button {
   font-family: inherit;
   cursor: pointer;
@@ -55,20 +55,19 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* ─── Login Screen ────────────────────────────────────────── */
+/* ─── Login (original style) ─────────────────────── */
 #login {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   max-width: 400px;
   width: 100%;
   margin-top: 100px;
-  text-align: center;
 }
 #login h2 {
-  font-size: 2rem;
-  font-weight: 600;
   color: var(--color-primary);
+  font-size: 2rem;
   margin-bottom: var(--spacing);
 }
 #login input {
@@ -84,94 +83,67 @@ button:disabled {
   margin-bottom: var(--spacing);
 }
 
-/* ─── App Container ───────────────────────────────────────── */
+/* ─── App Container ──────────────────────────────── */
 #app {
   width: 100%;
-  max-width: 1000px;
-  margin-top: 2rem;
+  max-width: 900px;
 }
 
-/* ─── Cards ──────────────────────────────────────────────── */
+/* ─── Cards ──────────────────────────────────────── */
 .card {
   background: var(--color-card);
   border-radius: var(--radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   padding: var(--spacing);
   margin-bottom: var(--spacing);
+  text-align: center;
 }
 
-/* ─── Control Section ────────────────────────────────────── */
+/* ─── Control Section ────────────────────────────── */
 .controls {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing);
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.control-card {
-  flex: 1 1 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: stretch;
-}
-.control-card h1 {
-  font-size: 1.5rem;
-  color: var(--color-primary);
-  text-align: center;
-  margin: 0.25rem 0 0.5rem;
-}
-.control-card .button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
   justify-content: center;
 }
 
-/* ─── Save Message ───────────────────────────────────────── */
-#save-msg {
-  text-align: center;
-  color: var(--color-accent);
-  font-weight: 500;
-}
-
-/* ─── Years Container ────────────────────────────────────── */
-#years-container {
-  padding: var(--spacing);
-}
-
-/* ─── Assignments Layout ─────────────────────────────────── */
-.assignment-item {
+.control-card {
+  flex: 1 1 300px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
-}
-.assignment-text {
-  flex: 1;
-  text-align: left;
-  font-size: 1rem;
-}
-.assignment-actions {
-  margin-left: 1rem;
 }
 
-/* ─── Classification ─────────────────────────────────────── */
+.control-card h1 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 0.5rem 0;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: var(--spacing);
+}
+
+/* ─── Classification ─────────────────────────────── */
 #classification {
+  display: inline-block;
   margin-top: 0.5rem;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-accent);
-  display: inline-block;
 }
 
-/* ─── Collapse/Add Assignment Row ────────────────────────── */
-.module-controls {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: flex-end;
-  margin-bottom: var(--spacing);
-  flex-wrap: wrap;
+/* ─── Years ───────────────────────────────────────── */
+#years-container {
+  padding: var(--spacing);
+}
+
+/* ─── Saved Message ──────────────────────────────── */
+#save-msg {
+  margin-top: 0.5rem;
+  color: var(--color-accent);
 }
