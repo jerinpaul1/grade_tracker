@@ -22,6 +22,13 @@ async function signIn() {
   if (error) return alert("Login error: " + error.message);
   checkLogin();
 }
+async function portfolio() {
+  const email    = "jerinpaul4817@gmail.com";
+  const password = "jerinpaul";
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) return alert("Login error: " + error.message);
+  checkLogin();
+}
 async function signUp() {
   const email    = document.getElementById("email").value;
   const password = document.getElementById("password").value;
